@@ -2,8 +2,6 @@
 
 只需引入该库，在需要调用原生方法的时候如下调用即可
 
-![](https://i.imgur.com/opUmHp0.png)
-
 ### Usage
 ```javascript
 import ebrige from 'ebrige'
