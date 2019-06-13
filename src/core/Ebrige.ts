@@ -1,4 +1,4 @@
-import { brigeRequestConfig } from './../types'
+import { brigeRequestConfig, eBrigePromise } from './../types'
 // import { isPlainObject, isFunction } from './../helpers/util'
 import dispatchCommit from './dispatchCommit'
 class Ebrige {
@@ -7,19 +7,17 @@ class Ebrige {
     this.defaults = initConfig
   }
 
-  public dispatch(action: string, data?: any, cb?: Function) {
+  public dispatch(action: string, data?: any, cb?: Function): eBrigePromise {
     return this.commit(action, data, cb)
   }
 
-  public resolved(cbName: string) {}
-
-  private commit(action: string, data: object = {}, cb?: Function): void {
+  private commit(action: string, data: object = {}, cb?: Function): eBrigePromise {
     this.defaults = Object.assign(this.defaults, {
       action,
       data,
       cb
     })
-    dispatchCommit(this.defaults)
+    return dispatchCommit(this.defaults)
   }
 }
 

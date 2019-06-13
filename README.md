@@ -5,11 +5,17 @@
 ### Usage
 ```javascript
 import ebrige from 'ebrige'
-ebrige.dispatch('getUserData', { name: '鸭子' }, function () {
-    console.log(21321321)
+ebrige.dispatch('getUserData', { name: '鸭子' }, function (res) {
+    console.log(res)
+})
+
+ebrige.dispatch('getUserData', { name: '鸭子' }).then(res=>{
+    // res
 })
 ```
 
 ### 文档
 
 ebrige.dispatch(方法名,需要传递的参数(没有参数可省略) ,回调) 
+
+dispatch promise和回调参数为原生返回的参数

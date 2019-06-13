@@ -1,6 +1,11 @@
 import { isPlainObject } from './util'
 export function enCodeRequestData(data: any) {
-  return window.btoa(data)
+  // data = JSON.stringify(data)
+  return window.btoa(encodeURIComponent(JSON.stringify(data)))
+
+  // return window.btoa(data)
 }
 
-export function deCodeRequestData() {}
+export function deCodeRequestData(base64: string) {
+  return window.atob(base64)
+}

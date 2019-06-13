@@ -4,7 +4,7 @@ import { isFunction, isPlainObject } from './../helpers/util'
 import brige from './brige'
 function dispatchCommit(config: brigeRequestConfig) {
   processConfig(config)
-  brige(config)
+  return brige(config)
 }
 
 function processConfig(config: brigeRequestConfig) {
