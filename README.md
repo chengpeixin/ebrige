@@ -9,6 +9,7 @@
 
 > 这是一个用于javascript与原生交互的库
 
+
 ### 🏠 [Homepage](https://github.com/chinese-captain/eBrige)
 
 ## Prerequisites
@@ -16,9 +17,10 @@
 - node &gt;=6.0.0
 
 ## Install
+推荐使用yarn
 
 ```sh
-npm install ebrige
+npm install ebrige | yarn add ebrige
 ```
 
 ## Usage
@@ -40,19 +42,25 @@ Ebrige.dispath('getUser').then(res=>{
 // 普通回调调用
 //  调用原生方法(传递参数)
 Ebrige.dispath('getUser',{token:'token'},res=>{
-    // res is native return dat
+    // res is native return data
 })
 
 // 不传递参数
 Ebrige.dispath('getUser',res=>{
-    // res is native return dat
+    // res is native return data
 })
 ```
+
+> 原生如何调用？
 
 ## Run tests
 
 ```sh
 npm run test
+```
+## Run Demo
+```sh
+npm run demo
 ```
 
 ## Author
