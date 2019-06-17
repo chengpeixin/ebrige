@@ -67,7 +67,7 @@ npm run demo
 
 👤 **惜纸**
 
-* Github: [@https://github.com/chengpeixin](https://github.com/https://github.com/chengpeixin)
+* Github: [@https://github.com/chengpeixin](chengpeixin)
 
 ## 🤝 Contributing
 
