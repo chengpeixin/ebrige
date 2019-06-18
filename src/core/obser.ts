@@ -3,7 +3,7 @@ import { callId, obParams } from './../types'
 
 export default class createOb {
   private cb!: Function
-  defaultObParams!: obParams
+  private defaultObParams!: obParams
   constructor(callId: callId) {
     this.initObData(callId)
     this.observe(callId)

@@ -8,7 +8,7 @@ declare const window: Window & { [callbackName: string]: Function }
 export default function brige({ url, data, cb, action }: brigeRequestConfig): eBrigePromise {
   return new Promise((resolve: Function, reject: Function) => {
     const callbackName: any = action! + Date.now()
-    const requestUrl = `${url}data=${data}&callId=${callbackName}`
+    const requestUrl: string = `${url}data=${data}&callId=${callbackName}`
     let medium: medium = createIframe()
     setMedium(medium, requestUrl)
     sendRequest(medium)
@@ -34,7 +34,7 @@ export default function brige({ url, data, cb, action }: brigeRequestConfig): eB
   })
 }
 
-function sendRequest(medium: medium) {
+function sendRequest(medium: medium): void {
   const body: HTMLElement = document.body
   body.appendChild(medium)
 }

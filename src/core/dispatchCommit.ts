@@ -12,12 +12,12 @@ function processConfig(config: brigeRequestConfig) {
   config.data = transformData(config)
 }
 
-function transformURL(config: brigeRequestConfig) {
+function transformURL(config: brigeRequestConfig): string {
   const { schema, action } = config
   return `${schema}/${action}?`
 }
 
-function transformData({ data }: brigeRequestConfig) {
+function transformData({ data }: brigeRequestConfig): string {
   if (isFunction(data) && !isPlainObject(data)) data = {}
   return enCodeRequestData(data)
 }

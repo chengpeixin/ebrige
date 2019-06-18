@@ -50,12 +50,25 @@ Ebrige.dispath('getUser',res=>{
     // res is native return data
 })
 ```
+## 未来计划 
+
++ [ ] 自定义多配置
+
++ [ ] 拦截器 
+
++ [ ] 长连接
+
++ [ ] 手机硬件权限
+
++ [ ] 单元测试
+
 
 > 原生如何调用？
 
 ## Run tests
 
 ```sh
+# 待全部功能开发完成，写单测
 npm run test
 ```
 ## Run Demo
