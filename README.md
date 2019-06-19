@@ -58,8 +58,6 @@ Ebrige.dispath('getUser',res=>{
 
 + [ ] 长连接
 
-+ [ ] 手机硬件权限
-
 + [ ] 单元测试
 
 

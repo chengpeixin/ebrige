@@ -1,8 +1,8 @@
 import { brigeRequestConfig } from './types/index'
 
 const defaults: brigeRequestConfig = {
-  schema: 'brige://util',
-  timeout: 0,
+  schema: 'brige://',
+  timeout: 2000,
   data: {}
 }
 

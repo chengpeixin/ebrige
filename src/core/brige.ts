@@ -3,17 +3,17 @@ import { createIframe, isFunction } from './../helpers/util'
 import { medium, setMedium } from './../helpers/medium'
 import createOb from './obser'
 
-declare const window: Window & { [callbackName: string]: Function }
+declare const window: Window & { [callId: string]: Function }
 
 export default function brige({ url, data, cb, action }: brigeRequestConfig): eBrigePromise {
   return new Promise((resolve: Function, reject: Function) => {
-    const callbackName: any = action! + Date.now()
-    const requestUrl: string = `${url}data=${data}&callId=${callbackName}`
+    const callId: any = action! + Date.now()
+    const requestUrl: string = `${url}data=${data}&callId=${callId}`
     let medium: medium = createIframe()
     setMedium(medium, requestUrl)
     sendRequest(medium)
+    const ob = new createOb(callId)
     console.log(requestUrl)
-    const ob = new createOb(callbackName)
     ob.onResolved((brigeData: obParams) => {
       const responseData: object | null = brigeData.data
       if (isFunction(cb)) {
@@ -28,9 +28,6 @@ export default function brige({ url, data, cb, action }: brigeRequestConfig): eB
       document.body.removeChild(medium)
       medium = null!
     })
-    setTimeout(() => {
-      ;(window as any)[callbackName]['status'] = 2
-    }, 5000)
   })
 }
 
