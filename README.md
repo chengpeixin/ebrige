@@ -10,7 +10,7 @@
 > 这是一个用于javascript与原生交互的库
 
 
-### 🏠 [Homepage](https://github.com/chinese-captain/eBrige)
+### 🏠 [Homepage](https://github.com/chengpeixin/ebrige)
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ npm run demo
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/chinese-captain/eBrige/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/chengpeixin/eBrige/issues).
 
 ## Show your support
 
