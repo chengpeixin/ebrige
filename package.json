@@ -1,6 +1,6 @@
 {
   "name": "ebrige",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/ebrige.umd.js",
@@ -12,7 +12,7 @@
   "author": "xinpeicheng <xinpeicheng@yeah.net>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/chengpeixin/ebrige"
   },
   "license": "MIT",
   "engines": {
@@ -33,7 +33,9 @@
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once",
-    "demo": "node_modules/.bin/parcel serve watch demo/index.html -d demo/dist  --port 4321  --log-level 3 --no-source-maps --open"
+    "demo": "node_modules/.bin/parcel serve watch demo/index.html -d demo/dist  --port 4321  --log-level 3 --no-source-maps --open",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -108,7 +110,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.18.0",
-    "semantic-release": "^15.9.16",
+    "semantic-release": "^15.13.16",
     "shelljs": "^0.8.3",
     "travis-deploy-once": "^5.0.9",
     "ts-jest": "^23.10.2",
