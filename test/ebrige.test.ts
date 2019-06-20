@@ -1,5 +1,5 @@
 import DummyClass from '../src/ebrige'
-
+import Ebrige from './../src/core/Ebrige'
 /**
  * Dummy test
  */
@@ -9,6 +9,6 @@ describe('Dummy test', () => {
   })
 
   it('DummyClass is instantiable', () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+    expect(DummyClass).toBeInstanceOf(Ebrige)
   })
 })
