@@ -1,7 +1,7 @@
-import { brigeRequestConfig } from './types'
+import { BrigeRequestConfig } from './types'
 import Ebrige from './core/Ebrige'
 import defaults from './defaults'
-function createInstance(config: brigeRequestConfig) {
+function createInstance(config: BrigeRequestConfig) {
   const context = new Ebrige(config)
   return context
 }

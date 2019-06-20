@@ -1,6 +1,6 @@
-import { brigeRequestConfig } from './types/index'
+import { BrigeRequestConfig } from './types/index'
 
-const defaults: brigeRequestConfig = {
+const defaults: BrigeRequestConfig = {
   schema: 'brige://',
   timeout: 2000,
   data: {}

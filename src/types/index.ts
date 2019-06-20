@@ -1,4 +1,4 @@
-export interface brigeRequestConfig {
+export interface BrigeRequestConfig {
   schema?: string
   data?: any
   url?: string
@@ -9,11 +9,11 @@ export interface brigeRequestConfig {
   request?: string
 }
 
-export interface eBrigePromise<T = any> extends Promise<eBrigePromise<T>> {}
+export interface EbrigePromise<T = any> extends Promise<EbrigePromise<T>> {}
 
 export type callId = string
 
-export interface obParams {
+export interface ObParams {
   status: number
   data: object | null
   callId: callId

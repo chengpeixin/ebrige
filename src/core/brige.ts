@@ -1,20 +1,20 @@
-import { brigeRequestConfig, eBrigePromise, obParams } from '../types'
+import { BrigeRequestConfig, EbrigePromise, ObParams } from '../types'
 import { createIframe, isFunction } from './../helpers/util'
 import { medium, setMedium } from './../helpers/medium'
-import createOb from './obser'
+import CreateOb from './obser'
 
 declare const window: Window & { [callId: string]: Function }
 
-export default function brige({ url, data, cb, action }: brigeRequestConfig): eBrigePromise {
+export default function brige({ url, data, cb, action }: BrigeRequestConfig): EbrigePromise {
   return new Promise((resolve: Function, reject: Function) => {
     const callId: any = action! + Date.now()
     const requestUrl: string = `${url}data=${data}&callId=${callId}`
     let medium: medium = createIframe()
     setMedium(medium, requestUrl)
     sendRequest(medium)
-    const ob = new createOb(callId)
+    const ob = new CreateOb(callId)
     console.log(requestUrl)
-    ob.onResolved((brigeData: obParams) => {
+    ob.onResolved((brigeData: ObParams) => {
       const responseData: object | null = brigeData.data
       if (isFunction(cb)) {
         cb(responseData)

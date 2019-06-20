@@ -1,9 +1,9 @@
 import { isFunction } from './../helpers/util'
-import { callId, obParams } from './../types'
+import { callId, ObParams } from './../types'
 
-export default class createOb {
+export default class CreateOb {
   private cb!: Function
-  private defaultObParams!: obParams
+  private defaultObParams!: ObParams
   constructor(callId: callId) {
     this.initObData(callId)
     this.observe(callId)
