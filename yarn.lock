@@ -3528,6 +3528,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+ebrige@^0.0.0-development:
+  version "0.0.0-development"
+  resolved "https://registry.yarnpkg.com/ebrige/-/ebrige-0.0.0-development.tgz#2ab4a280408bc52ec3ce32ae555eb25578269d72"
+  integrity sha512-3GymqeiI5RZyOipYj7qxxY+f+ZaJ7ItqioL/SEBppnNjx2CQqrFbGfZHmzfW+wPhA27vIFA4bFj345pw5oL+DQ==
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
