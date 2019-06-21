@@ -34,8 +34,8 @@
     "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once",
     "demo": "node_modules/.bin/parcel serve watch demo/index.html -d demo/dist  --port 4321  --log-level 3 --no-source-maps --open",
-    "prepush": "npm run test:prod && npm run build",
-    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+    "prepub": "npm run test:prod && npm run build",
+    "pub": "sh release.sh"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [

@@ -1,4 +1,11 @@
 language: node_js
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
 cache:
   directories:
     - ~/.npm
