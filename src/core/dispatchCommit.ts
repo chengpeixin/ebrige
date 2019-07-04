@@ -14,7 +14,7 @@ function processConfig(config: BrigeRequestConfig): void {
 
 function transformURL(config: BrigeRequestConfig): string {
   const { schema, action } = config
-  return `${schema}${action}?`
+  return `${schema}://${action}?`
 }
 
 function transformData({ data }: BrigeRequestConfig): string {
