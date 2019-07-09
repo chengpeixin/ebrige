@@ -1,6 +1,6 @@
-import { BrigeRequestConfig, EbrigePromise, callId, callData } from './../types'
-// import { isPlainObject, isFunction } from './../helpers/util'
+import { BrigeRequestConfig, EbrigePromise, callId } from './../types'
 import dispatchCommit from './dispatchCommit'
+
 class Ebrige {
   private defaults: BrigeRequestConfig
   constructor(initConfig: BrigeRequestConfig) {
@@ -19,18 +19,18 @@ class Ebrige {
     })
     return dispatchCommit(this.defaults)
   }
-  /**
-   *
-   * @param callId 由原生传入的callId
-   */
-  public callSuccess(callId: callId, status = 1, data: callData) {
-    if ((window as any).callId) {
-      // tslint:disable-next-line: no-unexpected-multiline
-      ;(window as any)[callId].data = data(window as any)[callId].status = status
-      setTimeout(() => {
-        delete (window as any).callId
-      }, 1000)
+
+  public callSuccess(callId: callId, status = 1, data = {}, msg = '') {
+    if ((window as any)[callId]) {
+      Object.assign((window as any)[callId], {
+        data,
+        status,
+        msg
+      })
     }
+    setTimeout(() => {
+      delete (window as any)[callId]
+    }, 2000)
   }
 }
 

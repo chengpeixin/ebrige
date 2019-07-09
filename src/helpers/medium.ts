@@ -8,7 +8,4 @@ export function setMedium<medium>(medium: any, requestUrl: string): medium {
   return medium
 }
 
-export function createCb<T>(cb: T): string {
-  return ''
-}
 export type medium = HTMLIFrameElement

@@ -15,8 +15,9 @@ export type callId = string
 
 export type callData = any
 
-export interface ObParams {
+export interface NativeResponse {
   status: number
   data: object | null
   callId: callId
+  msg?: string
 }

@@ -1,9 +1,7 @@
-import { BrigeRequestConfig, EbrigePromise, ObParams } from '../types'
+import { BrigeRequestConfig, EbrigePromise, NativeResponse } from '../types'
 import { createIframe, isFunction } from './../helpers/util'
 import { medium, setMedium } from './../helpers/medium'
 import CreateOb from './obser'
-
-declare const window: Window & { [callId: string]: Function }
 
 export default function brige({ url, data, cb, action }: BrigeRequestConfig): EbrigePromise {
   return new Promise((resolve: Function, reject: Function) => {
@@ -14,13 +12,14 @@ export default function brige({ url, data, cb, action }: BrigeRequestConfig): Eb
     sendRequest(medium)
     const ob = new CreateOb(callId)
     console.log(requestUrl)
-    ob.onResolved((brigeData: ObParams) => {
-      const responseData: object | null = brigeData.data
+    ob.onResolved(({ status, data }: NativeResponse) => {
       if (isFunction(cb)) {
-        cb(responseData)
+        cb(data)
       } else {
-        if (brigeData.status !== 1) reject(brigeData.status)
-        resolve(responseData)
+        if (status !== 1) {
+          reject(status)
+        }
+        resolve(data)
       }
     })
 

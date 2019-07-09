@@ -1,9 +1,9 @@
 import { isFunction } from './../helpers/util'
-import { callId, ObParams } from './../types'
+import { callId, NativeResponse } from './../types'
 
 export default class CreateOb {
   private cb!: Function
-  private defaultObParams!: ObParams
+  private defaultObParams!: NativeResponse
   constructor(callId: callId) {
     this.initObData(callId)
     this.observe(callId)
@@ -28,7 +28,9 @@ export default class CreateOb {
         set: newVal => {
           ;(defaultObParams as any)[key] = newVal
           if (key !== 'status') return
-          if (isFunction(this.cb)) this.cb(defaultObParams, key, newVal)
+          if (isFunction(this.cb)) {
+            this.cb(defaultObParams, key, newVal)
+          }
         },
         enumerable: true,
         configurable: true
