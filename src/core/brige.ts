@@ -1,25 +1,34 @@
-import { BrigeRequestConfig, EbrigePromise, NativeResponse } from '../types'
+/*
+ * @Description: 发送请求
+ * @Author: 惜纸
+ * @Date: 2019-08-16 11:13:36
+ * @LastEditTime: 2019-08-16 17:38:01
+ * @LastEditors: Please set LastEditors
+ */
+import { BrigeRequestConfig, EbrigePromise, dataContext } from '../types'
 import { createIframe, isFunction } from './../helpers/util'
 import { medium, setMedium } from './../helpers/medium'
 import CreateOb from './obser'
+import { isNull } from './../helpers/util'
 
-export default function brige({ url, data, cb, action }: BrigeRequestConfig): EbrigePromise {
+export default function brige({ url, requestData, cb, action }: BrigeRequestConfig): EbrigePromise {
   return new Promise((resolve: Function, reject: Function) => {
     const callId: any = action! + Date.now()
-    const requestUrl: string = `${url}data=${data}&callId=${callId}`
+    console.log(callId)
+    const requestUrl: string = `${url}callId=${callId}`
     let medium: medium = createIframe()
     setMedium(medium, requestUrl)
     sendRequest(medium)
-    const ob = new CreateOb(callId)
-    console.log(requestUrl)
-    ob.onResolved(({ status, data }: NativeResponse) => {
+    const ob = new CreateOb(callId, requestData as object)
+    ob.onRechanged(({ response, failed }: dataContext) => {
       if (isFunction(cb)) {
-        cb(data)
+        cb(response)
       } else {
-        if (status !== 1) {
-          reject(status)
+        if (isNull(failed.failedTime)) {
+          resolve(response)
+        } else {
+          reject(failed)
         }
-        resolve(data)
       }
     })
 

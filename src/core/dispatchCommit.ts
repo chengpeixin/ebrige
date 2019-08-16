@@ -1,6 +1,11 @@
+/*
+ * @Description: 发送请求
+ * @Author: 惜纸
+ * @Date: 2019-08-16 10:40:48
+ * @LastEditTime: 2019-08-16 16:53:46
+ * @LastEditors: Please set LastEditors
+ */
 import { BrigeRequestConfig, EbrigePromise } from './../types'
-import { enCodeRequestData } from './../helpers/data'
-import { isFunction, isPlainObject } from './../helpers/util'
 import brige from './brige'
 function dispatchCommit(config: BrigeRequestConfig): EbrigePromise {
   processConfig(config)
@@ -9,17 +14,11 @@ function dispatchCommit(config: BrigeRequestConfig): EbrigePromise {
 
 function processConfig(config: BrigeRequestConfig): void {
   config.url = transformURL(config)
-  config.data = transformData(config)
 }
 
 function transformURL(config: BrigeRequestConfig): string {
   const { schema, action } = config
   return `${schema}://${action}?`
-}
-
-function transformData({ data }: BrigeRequestConfig): string {
-  if (isFunction(data) && !isPlainObject(data)) data = {}
-  return enCodeRequestData(data)
 }
 
 export default dispatchCommit
