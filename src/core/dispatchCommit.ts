@@ -17,8 +17,8 @@ function processConfig(config: BrigeRequestConfig): void {
 }
 
 function transformURL(config: BrigeRequestConfig): string {
-  const { schema, action } = config
-  return `${schema}://${action}?`
+  const { schema, action, requestData } = config
+  return `${schema}://${action}?data=${JSON.stringify(requestData)}&`
 }
 
 export default dispatchCommit

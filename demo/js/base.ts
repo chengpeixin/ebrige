@@ -7,7 +7,6 @@
  */
 // import ebrige from 'ebrige'
 import ebrige from './../../src/ebrige'
-console.log(ebrige)
 window.onload = function () {
     const btn2: HTMLBodyElement = document.querySelector('.link')
     btn2.onclick = function () {

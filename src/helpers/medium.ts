@@ -5,6 +5,7 @@ export function setMedium<medium>(medium: any, requestUrl: string): medium {
     medium.style[k] = (mediumConfig as any)[k]
   })
   medium.src = requestUrl
+  console.log(requestUrl)
   return medium
 }
 

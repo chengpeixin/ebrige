@@ -12,3 +12,4 @@ compiled
 docs
  .cache
  demo/dist
+.cache
